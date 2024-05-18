@@ -1,4 +1,3 @@
-.keep
 *.rbc
 capybara-*.html
 .rspec
@@ -17,7 +16,6 @@ pickle-email-*.html
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-*/.keep
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
@@ -69,6 +67,7 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+
 
 # Rubymine
 .idea
