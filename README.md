@@ -1,15 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Creating initial token:
+```shell
+rails c
+JsonWebToken.encode({}, 24.hours.from_now.to_i, "admin")
+```
+This will generate admin root token for initial link creation api call.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
 
 * Database creation
 
