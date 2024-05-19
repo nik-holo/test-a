@@ -9,7 +9,7 @@ module Authenticatable
   private
 
   def authenticate!
-    bearer_token = request.headers["Authorization"]&.delete_prefix("Bearer ")
+    bearer_token = request.headers["Authorization"]&.delete_prefix("Bearer ") || params[:token]
     decoded_json = JsonWebToken.decode(bearer_token)
 
     forbidden if decoded_json["role"] != self.class::ACCESS_LEVEL_REQUIRED

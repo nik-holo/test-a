@@ -21,7 +21,7 @@ module Api
 
       def upload_url
         token = JsonWebToken.encode({}, params[:expires_at])
-        "#{request.base_url}/api/v1/images/#{token}"
+        "#{request.base_url}/api/v1/images/upload/#{token}"
       end
     end
   end
