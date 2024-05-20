@@ -18,7 +18,6 @@ class StatsService
       model = magic.exif["Model"] || "unknown"
       update_counter("#{CAMERA_PREFIX}#{model}")
       update_counter("#{FORMAT_PREFIX}#{type}")
-      update_counter("#{DAY_PREFIX}#{date}")
     end
 
     def update_counter(counter)
