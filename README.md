@@ -75,3 +75,21 @@ Stats endpoint should be avaiable with admin bearer token and look like this:
 7. Speaking of Redis - i would use it for storing md5 hashes instead of sql uniq constrain. Mybe in separate instance as well.
 8. Deleting images shold drop the counters on stats, but i've skipped to save time.
 9. Nobody called Rubocop, but i would've done it in real world work on each commit as a hook. But something got broken during rubocop -a so skipped it as well.
+
+
+##  Service scalability and performance
+ >What kind of technologies would you use for the service and its respective infrastructure?
+
+TBD
+
+ > Where and how would you store data?
+
+TBD
+
+ > On top of what is mentioned above, what would you use the batch/real-time pipeline for?
+
+TBD
+
+ > What kind of questions would you need to have answered in order to solve this task more concretely or in order to make better decisions on architecture and technologies?
+
+TBD
