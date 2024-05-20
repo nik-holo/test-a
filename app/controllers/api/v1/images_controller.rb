@@ -34,8 +34,10 @@ module Api
           @image.image = image
           @image.uuid = SecureRandom.uuid
           @image.checksum = @image.image.blob.checksum
+
           @image.save
           response << @image.uuid
+          ::StatsService.save_stats(url_for(@image.image.blob), @image.image.blob.content_type)
         rescue ActiveRecord::RecordNotUnique => e
           response << "duplicate image: #{@image.image.blob.filename}"
         end

@@ -12,7 +12,7 @@ module Authenticatable
     bearer_token = request.headers["Authorization"]&.delete_prefix("Bearer ") || params[:token]
     decoded_json = JsonWebToken.decode(bearer_token)
 
-    forbidden if decoded_json["role"] != self.class::ACCESS_LEVEL_REQUIRED
+    forbidden if decoded_json.blank? || decoded_json["role"] != self.class::ACCESS_LEVEL_REQUIRED
   end
 
   def forbidden
