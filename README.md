@@ -79,17 +79,34 @@ Stats endpoint should be avaiable with admin bearer token and look like this:
 
 ##  Service scalability and performance
  >What kind of technologies would you use for the service and its respective infrastructure?
+So, let's talka layers first:
+1. Load balancer: After sending request to our api first thing is not manage load with Load Balancer.
+2. Live proccessing layer: i have foggy idea about how this shuld work, but i assume that it's gonna be still a queue and some high power EC2 unit or warmed up lambda to process data from images or apply models on a go.
+3. Storage: Second step/layer - simple storage. We want as less friction on this step as possible. S3 would probably be good fit for it.
+3. Event: On top of batch upload o would publish even or another queue  message that some images are uploaded and ready to be processed.
+4. Post proccesing layer: gets images in batches from s3 and applies all heavy operatioins and train models.
 
-TBD
+Extra services/features:
+1. Monitoring/alarms - we need to know if something goes wrong or bottlenecks. Grafana would do.
+2. Autoscaling on storage layer (we cannot affort to lose data, i assume)
+3. Dead letter queues - scheduled job to go through them and report if it still there
+4. DB: along with storing images we need to store it in DocumentDB (never tried it but sounds like a perfect usecase) or Redis with tricky set of prefixes
 
  > Where and how would you store data?
 
-TBD
+S3/DocumentDB/Redis
 
  > On top of what is mentioned above, what would you use the batch/real-time pipeline for?
-
-TBD
+ 1. Live data analysys. We could warm up some computational powers if we scan predict that most images require some proccesing.
+ 2. Anomaly Detection and maybe filtering out some obviosly bad input
+ 3. Data cleaning: I'm not good at image processing but depending on how heavy it is - we could clean/enhance images before storing it idf load is mild at the moment.
 
  > What kind of questions would you need to have answered in order to solve this task more concretely or in order to make better decisions on architecture and technologies?
 
-TBD
+- How many images we expect daily?
+- What is batch limit we could set?
+- What are the latency requirements for real-time processing?
+- What is the budget for infrastructure?
+- What are the security requirements?
+- how ofter predictive models change and do we need to redo previously proccessed images?
+- How should we proccess bad data?
