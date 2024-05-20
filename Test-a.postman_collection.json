@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "b296ffce-5e50-4819-b5b7-d2200bcb6e7a",
+		"name": "Test-a",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11142652"
+	},
+	"item": [
+		{
+			"name": "New Link",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTYxNTQ3MTYsInJvbGUiOiJhZG1pbiJ9.Nc_U7NQXNN8h5FBynpZ6TS8IGD7GYbwEfxj8lUcs-MI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/links?expires_at=1716092379",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"links"
+					],
+					"query": [
+						{
+							"key": "expires_at",
+							"value": "1716092379"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Images index",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTYxOTMzNzksInJvbGUiOiJ1cGxvYWRlciJ9._pRwvh4iJ_AvvbGwRF2Ahx5dFQcNc5jvGYs3wtNlfLU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files[]",
+							"type": "file",
+							"src": [
+								"/Users/nikitajt/Dropbox/images/interior/8-Scandinavian-Design-Ideas-To-a-Better-2018-1.jpg",
+								"/Users/nikitajt/Dropbox/images/interior/72c274de0a9672d6d6853b819f748b05.jpg",
+								"/Users/nikitajt/Dropbox/images/interior/10-Scandinavian-Style-Singapore-Homes-You-Must-See-Design-Practice-Hougang-Living-Room.jpg"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/images/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"images",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Batch Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files[]",
+							"type": "file",
+							"src": [
+								"/Users/nikitajt/Dropbox/images/interior/72c274de0a9672d6d6853b819f748b05.jpg",
+								"/Users/nikitajt/Dropbox/images/interior/754cdc3a484b9a3e75966d5d33f04185--scandinavian-kitchen-interiors-interior-ideas.jpg",
+								"/Users/nikitajt/Dropbox/images/interior/c70673ab8f33ac471994c9024c6bcaed--scandinavian-interior-design-designers.jpg",
+								"/Users/nikitajt/Dropbox/images/interior/Clean-Timeless-Beauty-Materiallized-in-Scandinavian-Interior-Design-with-a-Black-and-White-Theme-homesthetics-13.jpg"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/images/upload/eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTY0OTMzNzksInJvbGUiOiJ1cGxvYWRlciJ9.jzrboJLUQkj3zS4Lo3daRW9ua1AZv0_dUJNcdKH8PJc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"images",
+						"upload",
+						"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTY0OTMzNzksInJvbGUiOiJ1cGxvYWRlciJ9.jzrboJLUQkj3zS4Lo3daRW9ua1AZv0_dUJNcdKH8PJc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"/Users/nikitajt/Dropbox/desktop_memes/hell.jpg",
+								"/Users/nikitajt/Dropbox/desktop_memes/sanitar-mem.jpg",
+								"/Users/nikitajt/Dropbox/desktop_memes/download.jpg"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/batches",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"batches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTYxOTMzNzksInJvbGUiOiJ1cGxvYWRlciJ9._pRwvh4iJ_AvvbGwRF2Ahx5dFQcNc5jvGYs3wtNlfLU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"type": "file",
+							"src": [
+								"/Users/nikitajt/Dropbox/desktop_memes/hell.jpg",
+								"/Users/nikitajt/Dropbox/desktop_memes/sanitar-mem.jpg",
+								"/Users/nikitajt/Dropbox/desktop_memes/download.jpg"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/images/e6305eff-f380-49e1-9030-8d57d09a3106",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"images",
+						"e6305eff-f380-49e1-9030-8d57d09a3106"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTYyOTI0MzMsInJvbGUiOiJhZG1pbiJ9.epYYnAVyAp04ZNQm9M5-kUczDUwLR8jKuKEhYLl4Mkk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
