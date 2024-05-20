@@ -1,4 +1,7 @@
 # README
+Please use included Postman collection for testing.
+
+### Setup
 
 ### Creating initial token:
 ```shell
