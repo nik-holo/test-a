@@ -76,3 +76,6 @@ yarn-debug.log*
 .DS_store
 
 /config/master.key
+.env
+.env.development
+.env.test

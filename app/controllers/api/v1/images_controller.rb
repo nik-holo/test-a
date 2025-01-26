@@ -30,7 +30,7 @@ module Api
         files = params[:files]
 
         files&.each do |image|
-          @image = Image.new()
+          @image = Image.new
           @image.image = image
           @image.uuid = SecureRandom.uuid
           @image.checksum = @image.image.blob.checksum

@@ -9,7 +9,10 @@ class StatsService
       {
         cameras: stat_by_prefix(CAMERA_PREFIX),
         formats: stat_by_prefix(FORMAT_PREFIX),
-        days: Image.where('created_at > ?', 30.days.ago).group('created_at::date').count # this shoul also go into redis but wanted to save time
+        days: Image.where('created_at > ?', 30.days.ago)
+                    .group_by { |img| img.created_at.to_date }
+                    .transform_values(&:count)
+        # this shoul also go into redis but wanted to save time
       }
     end
 
