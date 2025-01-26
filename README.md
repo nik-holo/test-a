@@ -1,5 +1,25 @@
 # README
-Please use included Postman collection for testing.
+Appliaction with HTTP REST API
+Write an application with HTTP REST API for uploading images via an
+invitation link. You should implement at least these endpoints:
+- **Generate upload link** - which accepts a secret token and expiration
+time, and produces an expirable link to the endpoint that can be used for
+image upload;
+- **Upload image** - an expirable one, which accepts one or many images
+and returns back some identifier(s). The logic of uploading multiple
+images until the link is expired is up to you. Images, which will be
+persisted at service side and service should recognize duplicates and
+store them just once. Also, the image metadata data should be parsed and
+stored in a database (dimensions, camera model, location, etc.)
+- **Get image** - accepts image identifier and returns back an image.
+- **Get service statistics** - which expects a secret token and returns
+service statistics, among which:
+- the most popular image format;
+- the top 10 most popular camera models;
+- image upload frequency per day for the past 30 days.
+Application should be packed in one or multiple docker containers.
+Technologies and language choice is up to you.
+A link to a repository or an archive with code is expected back from you.
 
 ### Setup
 
@@ -37,6 +57,8 @@ JsonWebToken.encode({}, 48.hours.from_now.to_i, "admin")
 This will generate admin root token for initial link creation api call.
 
 ### Using API
+
+Please use included Postman collection for testing.
 
 Using New Link request from Postman collection generate a link upload with admin bearer token.
 
